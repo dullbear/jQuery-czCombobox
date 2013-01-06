@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Lancer" />
+    <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.czCombobox.js"></script>
+    <link href="http://im.crackedzone.com/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style/style.css"  />
+    <title>czCombobox Demo</title>
+</head>
+
+<body>
+<div class="container">
+<div class="page-header">
+    <h3>Demo 1: Please select your coutry(has group)</h3>
+</div>
+<form class="form-horizontal">
+    <div class="control-group">
+        <label class="control-label" for="country-1">Country:</label>
+        <div class="controls">
+            <select id="country-1" name="country-1">
+                <option value="">Select</option>
+                <optgroup label="---America---">
+                <option value="251">Anguilla</option>
+                <option value="75">Antigua Barbuda</option>
+                <option value="95">Chile</option>
+                <option value="82">Colombia</option>
+                <option value="228">Costa Rica</option>
+                <option value="81">Cuba</option>
+                <option value="79">Dominica</option>
+                <option value="260">Dominican Republic</option>
+                <option value="80">Ecuador</option>
+                <option value="261">El Salvador</option>
+                <option value="263">French Guiana</option>
+                <option value="267">Greenland</option>
+                <option value="83">Grenada</option>
+                <option value="268">Guadeloupe</option>
+                <option value="270">Guatemala</option>
+                <option value="87">United States</option>
+                <option value="297">United States Minor Outlying Islands</option>
+                <option value="92">Uruguay</option>
+                <option value="93">Venezuela</option>
+                <option value="298">Virgin Islands, British</option>
+                <option value="299">Virgin Islands, U.S.</option>
+                </optgroup>
+                <optgroup label="---Europe---">
+                <option value="3">Albania</option>
+                <option value="1">Andorra</option>
+                <option value="2">Austria</option>
+                <option value="7">Belarus</option>
+                <option value="11">Belgium</option>
+                <option value="10">Bosnia</option>
+                <option value="8">Bulgaria</option>
+                <option value="20">Latvia</option>
+                <option value="22">Liechtenstein</option>
+                <option value="21">Lithuania</option>
+                <option value="158">Luxembourg</option>
+                <option value="24">Macedonia</option>
+                <option value="25">Malta</option>
+                <option value="169">Ukraine</option>
+                <option value="232">United Arab Emirates</option>
+                <option value="174">United Kingdom</option>
+                </optgroup>
+                <optgroup label="---Asia---">
+                <option value="26">Afghanistan</option>
+                <option value="73">China</option>
+                <option value="35">East Timor</option>
+                <option value="37">Georgia</option>
+                <option value="176">Hong Kong</option>
+                <option value="69">India</option>
+                <option value="70">Indonesia</option>
+                <option value="66">Iran</option>
+                <option value="67">Iraq</option>
+                <option value="68">Israel</option>
+                <option value="52">Japan</option>
+                <option value="72">Viet Nam</option>
+                <option value="65">Yemen</option>
+                </optgroup>
+                <optgroup label="---Africa---">
+                <option value="97">Algeria</option>
+                <option value="100">Angola</option>
+                <option value="101">Benin</option>
+                <option value="102">Botswana</option>
+                <option value="103">Burkina-faso</option>
+                <option value="104">Burundi</option>
+                <option value="118">Cameroon</option>
+                <option value="257">Cape Verde</option>
+                <option value="121">Kenya</option>
+                <option value="122">Lesotho</option>
+                <option value="123">Liberia</option>
+                <option value="124">Libya</option>
+                <option value="125">Rwanda</option>
+                <option value="285">Saint Helena</option>
+                <option value="139">Sao Tome and Principe</option>
+                <option value="137">Senegal</option>
+                <option value="117">Zimbabwe</option>
+                </optgroup>
+                <optgroup label="---Oceania---">
+                <option value="250">American Samoa</option>
+                <option value="148">Australia</option>
+                <option value="258">Christmas Island</option>
+                <option value="259">Cocos (Keeling) Islands</option>
+                <option value="151">Cook</option>
+                <option value="150">Fiji</option>
+                <option value="264">French Polynesia</option>
+                <option value="269">Guam</option>
+                <option value="274">Kiribati</option>
+                <option value="276">Marshall Islands</option>
+                <option value="300">Wallis and Futuna</option>
+                </optgroup>
+            </select>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <button type="button" class="btn" onclick="alert( $('#country-1').czCombobox('instance').getValue() )">Get Value</button>
+            <button type="button" class="btn" onclick="alert( $('#country-1').czCombobox('instance').getText() )">Get Text</button>
+            <button type="button" class="btn" onclick="$('#country-1').czCombobox('instance').setFocus()">Set Focus</button>
+            <button type="button" class="btn" onclick="$('#country-1').czCombobox('instance').setOption(87)">Select USA</button>
+            <button type="button" class="btn" onclick="$('#country-1').czCombobox('instance').gotoFirst()">Go First</button>
+            <button type="button" class="btn" onclick="$('#country-1').czCombobox('instance').gotoPrev()">Go Prev</button>
+            <button type="button" class="btn" onclick="$('#country-1').czCombobox('instance').gotoNext()">Go Next</button> 
+            <button type="button" class="btn" onclick="$('#country-1').czCombobox('instance').gotoLast()">Go Last</button>
+        </div>
+    </div>
+</form>
+
+<div class="page-header">
+    <h3>Demo 2: Please select your coutry</h3>
+</div>
+<form class="form-horizontal">
+    <div class="control-group">
+        <label class="control-label" for="country-1">Country:</label>
+        <div class="controls">
+            <select id="country-2" name="country-2" tabindex="2">
+                <option value="">Select</option>
+                <option value="US">United States</option>
+                <option value="AZ">Azerbaijan</option>
+                <option value="BS">Bahamas</option>
+                <option value="CZ">Czech Republic</option>
+                <option value="DK">Denmark</option>
+                <option value="DJ">Djibouti</option>
+                <option value="DM">Dominica</option>
+                <option value="DO">Dominican Republic</option>
+                <option value="TL">East Timor</option>
+                <option value="EC">Ecuador</option>
+                <option value="EG">Egypt</option>
+                <option value="SV">El Salvador</option>
+                <option value="GQ">Equatorial Guinea</option>
+                <option value="ER">Eritrea</option>
+                <option value="EE">Estonia</option>
+                <option value="ET">Ethiopia</option>
+                <option value="FK">Falkland Islands</option>
+                <option value="GN">Guinea</option>
+                <option value="GW">Guinea Bissau</option>
+                <option value="GY">Guyana</option>
+                <option value="HT">Haiti</option>
+                <option value="ZW">Zimbabwe</option>
+            </select>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <button type="button" class="btn" id="getValue2">Get Value</button>
+            <button type="button" class="btn" id="getText2">Get Text</button>
+            <button type="button" class="btn" id="setFocus2">Set Focus</button>
+            <button type="button" class="btn" id="select2">Rebulid Options</button>
+        </div>
+    </div>
+</form>
+<div class="page-header">
+    <h3>Demo 2: Please select your language</h3>
+</div>
+<form class="form-horizontal">
+    <div class="control-group">
+        <label class="control-label" for="country-1">Language:</label>
+        <div class="controls">
+            <select id="language" name="language" tabindex="3">
+                <option value="en_us">English</option>
+                <option value="ge_ge">German</option>
+                <option value="fr_fr">French</option>
+                <option value="jp_jp">Japanese</option>
+            </select>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+        </div>
+    </div>
+</form>
+</div>
+<script type="text/javascript">
+    $('#country-1').czCombobox({
+        className : 'light-black',
+        listMargin: 5,
+        changeCallback: function() {
+            //alert('Has Changed')
+        }
+    });
+
+
+    $('#country-2').czCombobox({
+        className : 'light-white',
+        changeCallback:function() {
+            log('Demo2 change');
+        }
+    });
+
+
+    $('#language').czCombobox({
+        className : 'light-blue',
+        dropUp    : false,
+        listMargin: -1,
+        hideSelected: true  ,
+        focusCallback:function() {
+            log('Demo3 focus');
+        },
+        blurCallback:function() {
+            log('Demo3 blur');
+        },
+        changeCallback:function() {
+            log('Demo3 change');
+        }
+    });
+
+    
+    var czCountry2 = $('#country-2').czCombobox('instance');
+    $('#getValue2').click(function(){alert(czCountry2.getValue())});
+    $('#getText2').click(function(){alert( czCountry2.getText())});
+    $('#setFocus2').click(function(){czCountry2.setFocus();});
+    $('#select2').click(function(){
+        $('#country-2').html('<option value="A">New Option 1</option><option value="B">New Option 2</option>');
+        $('#country-2').czCombobox('instance').rebuild();
+    });
+    function log($message) {
+        var debug = true;
+        if ( debug ) {
+            if (window.console && window.console.log)
+                window.console.log($message);
+            //else
+                //alert($message);
+        } else {
+            //alert($message);
+        }
+    }
+</script>
+</body>
+</html>

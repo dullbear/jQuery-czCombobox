@@ -5,7 +5,7 @@
  * @author Lancer
  * @email lancer.he@gmail.com
  * @site crackedzone.com
- * @version 1.2
+ * @version 1.3.1
  * @date 2012-07-10
  * Copyright (c) 2011-2012 Lancer
  * @example
@@ -34,24 +34,25 @@
         return $(this).each(function (){
             var PCOUNT     = $(document).data( PNAME ) || 0;
             PCOUNT++;
+            $(document).data( PNAME, PCOUNT );
+
             var czCombobox = new czUI.czCombobox( options, PCOUNT );
             czCombobox.$element = $(this);
             czCombobox._init();
-            $(document).data( PNAME, PCOUNT );
             $(this).data( PNAME, czCombobox );
         });
     }
 
-    czUI.czCombobox = function( options, i ) {
-        this.NAME    = 'czCombobox';
-        this.VERSION = '1.3';
-        this.pluginId= this.NAME + '_' + i;
-        this.options = options;
+    czUI.czCombobox = function( options, index ) {
         this.currentIndex = -1;
-        this.keys      = [];
-        this.prevKey   = false;
-        this.focus     = false;
-        this.maxZindex = 'czComboxbox_max_zIndex';
+        this.NAME         = 'czCombobox';
+        this.VERSION      = '1.3';
+        this.maxZindex    = this.NAME + '-max-zIndex';
+        this.pluginId     = this.NAME + '-' + index;
+        this.options      = options;
+        this.keys         = [];
+        this.prevKey      = false;
+        this.focus        = false;  
     }
 
     czUI.czCombobox.defaults = {
@@ -96,6 +97,7 @@
 
             //bind events for new combo list.
             this._bindEvent();
+
         },
 
         debug : function( $message ) {
@@ -286,7 +288,7 @@
 
             this.keys.push( option.charAt(0).toLowerCase() );
 
-            if ( $option.attr('selected') == true ){
+            if ( $option.attr('selected') != 'undefined' ){
                 this.currentIndex = itemIndex;
                 if ( this.options.hideSelected != false )
                     optionHTML = '<li style="display:none">' + option + '</li>';
@@ -320,8 +322,8 @@
                 this.$li.show().eq(this.currentIndex).hide();
             } else {
                 this.$li.removeClass('li_selected')
-				        .eq(this.currentIndex)
-        				.addClass('li_selected');
+                        .eq(this.currentIndex)
+                        .addClass('li_selected');
             }
 
             var text = this.$li.eq(this.currentIndex).text();
@@ -472,17 +474,17 @@
             return this.$input.trigger('czfocus');
         },
 
-		reload: function() {
-			this.currentIndex = 0;
-			this._selectIndex(true);
-		},
+        reload: function() {
+            this.currentIndex = 0;
+            this._selectIndex(true);
+        },
         
-		rebuild:function() {
-			this.$wrap.remove();
-			this._init();
-		},
-		
-		setOption: function(optionValue) {
+        rebuild:function() {
+            this.$wrap.remove();
+            this._init();
+        },
+        
+        setOption: function(optionValue) {
             var self = this;
 
             if (typeof optionValue == 'undefined') {
@@ -495,7 +497,7 @@
                 try {
                     if ( $(this).val() == optionValue ){
                         throw i;
-					}
+                    }
                 } catch (i) {
                     self.currentIndex = i;
                     self._selectIndex();

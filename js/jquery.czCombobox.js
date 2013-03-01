@@ -288,7 +288,7 @@
 
             this.keys.push( option.charAt(0).toLowerCase() );
 
-            if ( typeof $option.attr('selected') != 'undefined' ){
+            if ( typeof $option.attr('selected') != undefined && ($option.attr('selected') == true || $option.attr('selected') == 'selected')){
                 this.currentIndex = itemIndex;
                 if ( this.options.hideSelected != false )
                     optionHTML = '<li style="display:none">' + option + '</li>';

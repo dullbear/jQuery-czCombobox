@@ -116,16 +116,19 @@
             var self = this;
 
             this.$wrap = $('<div />').addClass("czCombobox");
-            this.$input= $('<input type="text" />').addClass('combobox_txt').attr('readonly', true);
-            this.$ul   = $('<ul />').addClass('combobox_list');
-            this.$icon = $('<div />').addClass('combobox_icon');
+            this.$input= $('<input type="text" />').addClass('combobox-input').attr('readonly', true);
+            this.$ul   = $('<ul />').addClass('combobox-ul');
+            this.$icon = $('<div />').addClass('combobox-arrow');
 
-            this.$wrap.attr('id', this.pluginId )
-                        .addClass( this.options.className )
-                            .css({
-                                'position': 'relative',
-                                'zIndex'  : this.options.zIndex
-                                });
+            this.$wrap.attr('id', this.pluginId ).css({
+                'position': 'relative',
+                'zIndex'  : this.options.zIndex
+            });
+            if ( this.$element.attr('data-class') ) {
+                this.$wrap.addClass( this.$element.attr('data-class') );
+            } else if ( this.options.className ) {
+                this.$wrap.addClass(this.options.className);
+            }
             this.$ul.css({
                 'position': 'absolute'
             });
@@ -158,7 +161,7 @@
                     if ( $(this)[0].tagName.toUpperCase() == 'OPTION') {
                         comboboxListHTML += self._setOptionHTML( $(this), itemIndex );
                     } else {
-                        comboboxListHTML += '<li class="optgroup">'+ $(this).attr('label') + '<ul>';
+                        comboboxListHTML += '<li class="combobox-li-optgroup">'+ $(this).attr('label') + '<ul>';
 
                         $(this).children().each(function(){
                             comboboxListHTML += self._setOptionHTML( $(this), itemIndex );
@@ -171,13 +174,13 @@
             //add new list items to ul
             this.$ul.show()
             this.$ul.html(comboboxListHTML);
-            this.$li = this.$ul.find('li:not(.optgroup)');
+            this.$li = this.$ul.find('li:not(.combobox-li-optgroup)');
 
             //Get heights of new elements for use later
             if ( this.$element.is(':visible') == false ) {
                 var $temp = $("<div />").css({'position':'absolute', 'left':'-9999px'}).appendTo('body');
                 this.$wrap.clone().appendTo($temp);
-                this.ulHeight   = $temp.find('.combobox_list').height();
+                this.ulHeight   = $temp.find('.combobox-ul').height();
                 this.wrapHeight = $temp.find('.czCombobox').height();
                 $temp.remove();
             } else {
@@ -201,13 +204,13 @@
             }
 
             this.onTop = false;
-            this.$ul.css({top: this.wrapHeight+this.options.listMargin+'px', height: this.ulHeight});
+            this.$ul.removeClass('combobox-ul-dropup').css({top: this.wrapHeight+this.options.listMargin+'px', height: this.ulHeight});
 
             if (this.options.dropUp != false) {
                 containerPosY = containerPosY - scrollTop - this.options.listMargin;
                 if (containerPosY + this.ulHeight >= docHeight && containerPosY > this.ulHeight) {
                     this.onTop = true;
-                    this.$ul.css({top: '-'+(this.ulHeight+this.options.listMargin)+'px', height: this.ulHeight});
+                    this.$ul.addClass('combobox-ul-dropup').css({top: '-'+(this.ulHeight+1+this.options.listMargin)+'px', height: this.ulHeight});
                 }
             }
         },
@@ -220,20 +223,20 @@
                         var $li = $(e.target);
                     else
                         var $li = $(e.target).parentsUntil('ul');
-                    $li.addClass('li_hover');
+                    $li.addClass('combobox-li-hover');
                 },
                 'mouseleave': function (e){
                     if (e.target.nodeName == 'LI')
                         var $li = $(e.target);
                     else
                         var $li = $(e.target).parentsUntil('ul');
-                    $li.removeClass('li_hover');
+                    $li.removeClass('combobox-li-hover');
                 }
             });
 
             this.$wrap.bind({
-                'mouseenter': function() {self.$input.addClass('box_hover');},
-                'mouseleave': function() {self.$input.removeClass('box_hover');},
+                'mouseenter': function() {self.$input.addClass('combobox-input-hover');},
+                'mouseleave': function() {self.$input.removeClass('combobox-input-hover');},
                 'click'     : function() {
                     self.$input.trigger('czfocus');
                     if (self.$ul.is( ':visible' )){
@@ -249,13 +252,13 @@
             this.$input.bind('czfocus', function() {
                 if ( self.focus == true ) return ;
                 self.focus = true;
-                self.$input.addClass('box_focus');
+                self.$input.addClass('combobox-input-focus');
                 self.keyPress();
                 self._callback('focus');
             }).bind('czblur', function() {
                 if ( self.focus == false ) return ;
                 self.focus = false;
-                self.$input.removeClass('box_focus');
+                self.$input.removeClass('combobox-input-focus');
                 self.$wrap.unbind('keydown');
                 self.hideComboList();
                 self._callback('blur');
@@ -284,7 +287,7 @@
 
         _setOptionHTML : function($option, itemIndex) {
             var option = $option.text();
-            var optionHTML = '<li>' + option + '</li>';
+            var optionHTML = '<li class="combobox-li">' + option + '</li>';
 
             this.keys.push( option.charAt(0).toLowerCase() );
 
@@ -321,9 +324,9 @@
             if ( this.options.hideSelected != false ) {
                 this.$li.show().eq(this.currentIndex).hide();
             } else {
-                this.$li.removeClass('li_selected')
+                this.$li.removeClass('combobox-li-selected')
                         .eq(this.currentIndex)
-                        .addClass('li_selected');
+                        .addClass('combobox-li-selected');
             }
 
             var text = this.$li.eq(this.currentIndex).text();
@@ -469,6 +472,13 @@
             return this.$element.val();
         },
 
+        getElement: function() {
+            return this.$element;
+        },
+
+        getObject: function() {
+            return this.$wrap;
+        },
 
         setFocus: function() {
             return this.$input.trigger('czfocus');
@@ -506,4 +516,6 @@
             });
         }
     }
+	
+	$("[data-type='czCombobox'][data-init='true']").czCombobox();
 })(jQuery);

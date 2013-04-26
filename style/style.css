@@ -1,54 +1,52 @@
 body {font-family:Arial;}
 .czCombobox {}
-.czCombobox .combobox_txt { float:left;border:none; margin:0; padding:0; background-color:transparent; font-family:Arial; -webkit-border-radius: 0px;-moz-border-radius: 0px;border-radius: 0px; font-family:Arial;}
-.czCombobox .combobox_icon {position:absolute;}
-.czCombobox .box_hover, 
-.czCombobox .box_focus {cursor:default;}
+.czCombobox .combobox-input { float:left;border:none; margin:0; padding:0; background-color:transparent; font-family:Arial; -webkit-border-radius: 0px;-moz-border-radius: 0px;border-radius: 0px; font-family:Arial;}
+.czCombobox .combobox-arrow {position:absolute;}
+.czCombobox .combobox-input-focus, 
+.czCombobox .combobox-input-hover {cursor:default;}
 
-.czCombobox .combobox_list {margin:0; padding:0; list-style:none; left:0; }
-.czCombobox .combobox_list li {padding:0;margin:0;}
-.czCombobox .combobox_list .li_hover {cursor:default;}
-.czCombobox .combobox_list .li_selected{}
+.czCombobox .combobox-ul {margin:0; padding:0; list-style:none; left:0; }
+.czCombobox .combobox-li {padding:0;margin:0;}
+.czCombobox .combobox-li-hover {cursor:default;}
+.czCombobox .combobox-li-selected{}
 
-.czCombobox .optgroup {font-weight:bold;}
-.czCombobox .optgroup ul {margin:0; padding:0;list-style:none}
-.czCombobox .optgroup li {font-weight:normal; border-left:1px solid #ccc;}
+.czCombobox .combobox-li-optgroup {font-weight:bold;}
+.czCombobox .combobox-li-optgroup ul {margin:0; padding:0;list-style:none}
+.czCombobox .combobox-li-optgroup li {font-weight:normal; border-left:1px solid #ccc;}
 
-.light-black .combobox_icon,
-.light-white .combobox_icon,
-.light-blue .combobox_icon {
+.light-black .combobox-arrow,
+.light-white .combobox-arrow,
+.light-blue  .combobox-arrow {
     background-image:url(bg.gif); background-repeat:no-repeat;
 }
 
 .light-black {width:240px; color:#000; height:30px;}
-.light-black .combobox_txt  {width:228px; padding-left:10px; height:28px; line-height:28px; color:#333; border: 1px solid #ddd;}
-.light-black .combobox_icon {left:215px; height:30px; width:25px; background-position:0 0;}
-.light-black .box_hover, 
-.light-black .box_focus { background-position:0 -30px; color:#333;}
-.light-black .combobox_list {width:348px; background:#fff; border:1px solid #ddd; font-size:14px; color:#000;}
-.light-black .combobox_list {}
-.light-black .combobox_list li {padding:0 10px; line-height:24px; height: 24px;}
-.light-black .combobox_list li.optgroup{height: auto;}
-.light-black .combobox_list .li_hover {background:#ccc; color:#000;}
-.light-black .combobox_list .li_selected{background:#333; color:#fff}
+.light-black .combobox-input  {width:228px; padding-left:10px; height:28px; line-height:28px; color:#333; border: 1px solid #ddd;}
+.light-black .combobox-arrow {left:215px; height:30px; width:25px; background-position:0 0;}
+.light-black .combobox-input-focus, 
+.light-black .combobox-input-hover { background-position:0 -30px; color:#333;}
+.light-black .combobox-ul {width:348px; background:#fff; border:1px solid #ddd; font-size:14px; color:#000;}
+.light-black .combobox-li {padding:0 10px; line-height:24px; height: 24px;}
+.light-black .combobox-li-optgroup{height: auto;}
+.light-black .combobox-li-hover {background:#ccc; color:#000;}
+.light-black .combobox-li-selected{background:#333; color:#fff}
 
 .light-white {width:200px; color:#000; height:32px;}
-.light-white .combobox_txt  {width:153px; padding-left:10px; height:30px; line-height:30px; color:#333; border: 1px solid #999;}
-.light-white .combobox_icon {left:164px; height:32px; width:36px; background-position:0 -100px;}
-.light-white .box_hover, 
-.light-white .box_focus { background-position:0 -30px; color:#333;}
-.light-white .combobox_list {width:198px; border:1px solid #999; font-size:14px; color:#000; background-color: #e4e4e4;}
-.light-white .combobox_list {}
-.light-white .combobox_list li {padding:0 10px; line-height:24px; height: 24px;}
-.light-white .combobox_list .li_hover {background:#FFF; color:#000; border: 1px solid black}
-.light-white .combobox_list .li_selected{background:#FAFAFA; color:#333}
+.light-white .combobox-input  {width:153px; padding-left:10px; height:30px; line-height:30px; color:#333; border: 1px solid #999;}
+.light-white .combobox-arrow {left:164px; height:32px; width:36px; background-position:0 -100px;}
+.light-white .combobox-input-focus, 
+.light-white .combobox-input-hover { background-position:0 -30px; color:#333;}
+.light-white .combobox-ul {width:198px; border:1px solid #999; font-size:14px; color:#000; background-color: #e4e4e4;}
+.light-white .combobox-li {padding:0 10px; line-height:24px; height: 24px;}
+.light-white .combobox-li-hover {background:#FFF; color:#000; border: 1px solid black}
+.light-white .combobox-li-selected{background:#FAFAFA; color:#333}
 
 .light-blue {width:120px; color:#000; height:20px; margin-top: 5px; }
-.light-blue .combobox_txt  {width:90px; padding-left:10px; height:18px; line-height:18px; color:#4ea0d1; border: 1px solid #4ea0d1;font-size: 12px}
-.light-blue .combobox_icon {left:100px; height:20px; width:21px; background-position:0 -140px;}
-.light-blue .box_hover, 
-.light-blue .box_focus { background-position:0 -30px; color:#333;}
-.light-blue .combobox_list {width:99px; background:#FFF;border: 1px solid #4ea0d1; border-top: none; font-size:11px; color:#000; padding-bottom: 10px}
-.light-blue .combobox_list li {padding:3px 0px; margin-left:10px; width:80px; border-bottom:1px solid #333; line-height:14px; font-size:11px;}
-.light-blue .combobox_list .li_hover { cursor:pointer;}
-.light-blue .combobox_list .li_selected{}
+.light-blue .combobox-input  {width:90px; padding-left:10px; height:18px; line-height:18px; color:#4ea0d1; border: 1px solid #4ea0d1;font-size: 12px}
+.light-blue .combobox-arrow {left:100px; height:20px; width:21px; background-position:0 -140px;}
+.light-blue .combobox-input-focus, 
+.light-blue .combobox-input-focus { background-position:0 -30px; color:#333;}
+.light-blue .combobox-ul {width:99px; background:#FFF;border: 1px solid #4ea0d1; border-top: none; font-size:11px; color:#000; padding-bottom: 10px}
+.light-blue .combobox-li {padding:3px 0px; margin-left:10px; width:80px; border-bottom:1px solid #333; line-height:14px; font-size:11px;}
+.light-blue .combobox-li-hover { cursor:pointer;}
+.light-blue .combobox-li-selected{}

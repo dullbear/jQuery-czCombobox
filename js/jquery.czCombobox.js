@@ -4,12 +4,12 @@
  * @fileOverview Replace a select drop down box with a stylable unordered list
  * @author Lancer
  * @email lancer.he@gmail.com
- * @site crackedzone.com
+ * @site im.crackedzone.com
  * @version 1.3.1
  * @date 2012-07-10
- * Copyright (c) 2011-2012 Lancer
+ * Copyright (c) 2011-2013 Lancer
  * @example
- *    $("#country-list").czCombobox();
+ *    $("#country").czCombobox();
  */
 
 (function($) {
@@ -124,7 +124,8 @@
                 'position': 'relative',
                 'zIndex'  : this.options.zIndex
             });
-            if ( this.$element.attr('data-class') ) {
+            
+            if ( typeof this.$element.attr('data-class') != 'undefined' ) {
                 this.$wrap.addClass( this.$element.attr('data-class') );
             } else if ( this.options.className ) {
                 this.$wrap.addClass(this.options.className);

@@ -12,7 +12,7 @@ body {font-family:Arial;}
 
 .czCombobox .combobox-li-optgroup {font-weight:bold;}
 .czCombobox .combobox-li-optgroup ul {margin:0; padding:0;list-style:none}
-.czCombobox .combobox-li-optgroup li {font-weight:normal; border-left:1px solid #ccc;}
+.czCombobox .combobox-li-optgroup li {font-weight:normal; }
 
 .light-black .combobox-arrow,
 .light-white .combobox-arrow,
